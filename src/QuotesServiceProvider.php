@@ -17,5 +17,8 @@ class QuotesServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/quotes.php', 'quotes');
+        $this->app->singleton(QuotesApiService::class, function () {
+            return new QuotesApiService();
+        });
     }
 }
