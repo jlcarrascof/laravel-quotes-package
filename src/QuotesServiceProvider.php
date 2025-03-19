@@ -11,6 +11,14 @@ class QuotesServiceProvider extends ServiceProvider
             __DIR__.'/../config/quotes.php' => config_path('quotes.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__.'/../dist' => public_path('vendor/quotes'),
+        ], 'assets');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/quotes'),
+        ], 'views');
+
         $this->loadRoutesFrom(__DIR__.'/Routes/api.php');
     }
 
