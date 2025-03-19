@@ -72,3 +72,42 @@
     <p v-else>No quote selected.</p>
   </div>
 </template>
+
+<style>
+  div {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    color: #333;
+  }
+  button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  input {
+    padding: 10px;
+    margin: 5px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  h2 {
+    margin-top: 20px;
+    color: #666;
+  }
+</style>
