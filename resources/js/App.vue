@@ -6,7 +6,9 @@
     data() {
       return {
         quoteId: '',
-        quotes: []
+        quotes: [],
+        randomQuote: null,
+        selectedQuote: null
       };
     },
     methods: {
@@ -19,11 +21,27 @@
           this.quotes = [];
         }
       },
-      fetchRandomQuote() {
-        console.log('Fetching random quote...');
+      async fetchRandomQuote() {
+        try {
+          const response = await axios.get('/api/quotes/random');
+          this.randomQuote = response.data;
+        } catch (error) {
+          console.error('Error fetching random quote:', error);
+          this.randomQuote = null;
+        }
       },
-      fetchQuoteById() {
-        console.log('Fetching quote with ID:', this.quoteId);
+      async fetchQuoteById() {
+        if (!this.quoteId) {
+          alert('Please enter a quote ID');
+          return;
+        }
+        try {
+          const response = await axios.get(`/api/quotes/${this.quoteId}`);
+          this.selectedQuote = response.data;
+        } catch (error) {
+          console.error('Error fetching quote by ID:', error);
+          this.selectedQuote = null;
+        }
       }
     }
   };
@@ -37,11 +55,20 @@
     <input v-model="quoteId" placeholder="Enter quote ID" />
     <button @click="fetchQuoteById">Get Quote by ID</button>
 
+    <h2>All Quotes</h2>
     <ul v-if="quotes.length">
       <li v-for="quote in quotes" :key="quote.id">
         {{ quote.quote }} - {{ quote.author }}
       </li>
     </ul>
     <p v-else>No quotes yet.</p>
+
+    <h2>Random Quote</h2>
+    <p v-if="randomQuote">{{ randomQuote.quote }} - {{ randomQuote.author }}</p>
+    <p v-else>No random quote yet.</p>
+
+    <h2>Quote by ID</h2>
+    <p v-if="selectedQuote">{{ selectedQuote.quote }} - {{ selectedQuote.author }}</p>
+    <p v-else>No quote selected.</p>
   </div>
 </template>
