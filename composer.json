@@ -1,0 +1,28 @@
+{
+    "name": "jjmartinezf/quotes",
+    "description": "Laravel quotes package",
+    "type": "laravel-package",
+    "require": {
+        "laravel/framework": "^11"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jjmartinezf\\Quotes\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jjmartinezf",
+            "email": "entrenamientospuntonet@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jjmartinezf\\Quotes\\QuotesServiceProvider"
+            ]
+        }
+    }
+}
