@@ -8,6 +8,20 @@ Package for interacting with the dummyjson.com quotes API.
 - Hour 4: Added API routes and QuotesController.
 - Hour 5: Setup Vue.js UI with fetch all quotes functionality.
 - Hour 6: Completed Vue.js UI with random quote and quote by ID.
+- Hour 7: Made assets publishable, added view, and successfully tested package in Laravel 11 app.
 
 ## Documentation
-- Full documentation for installation, UI access, and build steps will be added in Hour 7 after testing.
+
+## Installation
+1. Install the package via Composer:
+   ```bash
+   composer require jjmartinezf/quotes
+
+2. Publish the package assets (config, assets, and views):
+   ```bash
+php artisan vendor:publish --tag=config
+php artisan vendor:publish --tag=assets
+php artisan vendor:publish --tag=views
+
+3. Run the package migrations:
+   ```bash
