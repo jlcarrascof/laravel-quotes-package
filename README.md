@@ -7,6 +7,7 @@ Package for interacting with the dummyjson.com quotes API.
 - Hour 3: Added rate limiting and binary search to QuotesApiService.
 - Hour 4: Added API routes and QuotesController.
 - Hour 5: Setup Vue.js UI with fetch all quotes functionality.
+- Hour 6: Completed Vue.js UI with random quote and quote by ID.
 
 ## Documentation
 - Full documentation for installation, UI access, and build steps will be added in Hour 7 after testing.
